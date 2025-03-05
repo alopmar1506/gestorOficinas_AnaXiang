@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('oficina', [OficinaController::class, 'index'])->name('oficina');
+Route::get('/oficinas/{id}', [OficinaController::class, 'show'])->name('mostrarOficina');
 Route::get('crearOficina', [OficinaController::class, 'create'])->name('crearOficina');
 Route::put('/oficinas', [OficinaController::class, 'store'])->name('guardarOficina');
 Route::get('crearEmpleado', [EmpleadoController::class, 'create'])->name('crearEmpleado');
@@ -26,14 +27,3 @@ Route::get('/empleados/{empleado}/', [EmpleadoController::class, 'edit'])->name(
 Route::put('/empleados/{empleado}', [EmpleadoController::class, 'update'])->name('actualizarEmpleado');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', [OficinaController::class, 'index'])->name('oficina');
-Route::get('/oficinas/{id}', [OficinaController::class, 'show'])->name('mostrarOficinas');
-Route::get('/oficinas/create', [OficinaController::class, 'create'])->name('crearOficina');
-Route::post('/oficinas', [OficinaController::class, 'store'])->name('guardarOficina');
-Route::get('/oficinas/{oficina}/empleados/create', [EmpleadoController::class, 'create'])->name('crearEmpleados');
-Route::post('/oficinas/{oficina}/empleados', [EmpleadoController::class, 'store'])->name('guardarEmpleado');
-Route::get('/empleados/{empleado}/', [EmpleadoController::class, 'edit'])->name('editarEmpleado');
-Route::put('/empleados/{empleado}', [EmpleadoController::class, 'update'])->name('actualizarEmpleado');
