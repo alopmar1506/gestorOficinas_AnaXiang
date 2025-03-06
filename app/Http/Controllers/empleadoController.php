@@ -32,7 +32,7 @@ class empleadoController extends Controller
         $empleado->oficina_id = $oficina->id;
         $empleado->save();
 
-        return redirect()->route('oficina', $empleado->oficina);
+        return redirect()->route('oficina', $oficina);
     }
 
     /**

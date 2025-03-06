@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Oficina</title>
+    <link href="{{ asset('css/oficina/styleFormCrearOficina.css') }}" rel="stylesheet">
 </head>
 <body>
 <h1>Crear Oficina</h1>
