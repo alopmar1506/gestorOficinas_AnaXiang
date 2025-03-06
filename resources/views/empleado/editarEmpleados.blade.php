@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Editar Empleado</h1>
-<form method="post" action="{{ route('actualizarEmpleado', [$oficina->id, $empleado->id]) }}">
+<form method="post" action="{{ route('actualizarEmpleados', ['empleado' => $empleado->id]) }}" >
     @csrf
     @method('PUT')
     <div>

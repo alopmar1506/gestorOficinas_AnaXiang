@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Oficina;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 
@@ -20,7 +21,7 @@ class empleadoController extends Controller
      */
     public function create(Oficina $oficina)
     {
-        return view('empleados.create', compact('oficina'));
+        return view('empleado/crearEmpleados', compact('oficina'));
     }
 
     /**
@@ -39,8 +40,9 @@ class empleadoController extends Controller
         $empleado->oficina_id = $oficina->id;
         $empleado->save();
 
-        return redirect()->route('oficinas.show', $oficina)->with('success', 'Empleado creado con éxito.');
+        return redirect()->route('mostrarOficina', $oficina);
     }
+
 
     /**
      * Display the specified resource.
@@ -53,15 +55,15 @@ class empleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Empleado $empleado)
+    public function edit(Empleado $empleado, Oficina $oficina)
     {
-        return view('empleados.edit', compact('empleado'));
+        return view('empleado/editarEmpleados', compact('empleado', 'oficina'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, Empleado $empleado, Oficina $oficina)
     {
         $request->validate([
             'nombre' => 'required',
@@ -72,7 +74,7 @@ class empleadoController extends Controller
 
         $empleado->update($request->all());
 
-        return redirect()->route('oficinas.show', $empleado->oficina)->with('success', 'Empleado actualizado con éxito.');
+        return redirect()->route('oficina', $empleado->oficina);
     }
 
     /**

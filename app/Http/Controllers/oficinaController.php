@@ -14,7 +14,7 @@ class oficinaController extends Controller
     public function index()
     {
         $oficinas = Oficina::all();
-        return view('oficinaIndex', compact('oficinas'));
+        return view('oficina/oficinaIndex', compact('oficinas'));
     }
 
     /**
@@ -22,7 +22,7 @@ class oficinaController extends Controller
      */
     public function create()
     {
-        return view('crearOficina');
+        return view('oficina/crearOficina');
     }
 
     /**
@@ -37,16 +37,17 @@ class oficinaController extends Controller
 
         Oficina::create($request->all());
 
-        return redirect()->route('oficina')->with('success', 'Oficina creada con éxito.');
+        return redirect()->route('oficina');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Oficina $oficina)
+    public function show(Oficina $oficina, string $id)
     {
+        $oficina=Oficina::findOrFail($id);
         $empleados = $oficina->empleados;
-        return view('mostrarOficina', compact('oficina'));
+        return view('oficina/mostrarOficina', compact('oficina'));
     }
 
     /**

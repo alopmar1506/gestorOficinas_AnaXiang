@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Crear Oficina</h1>
-<form method="post" action="{{ route('guardarOficina') }}">
+<form method="post" action="{{ route('guardarOficina')}}">
     @csrf
     @method('PUT')
     <div>

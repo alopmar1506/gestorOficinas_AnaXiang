@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Empleado</title>
+    <title>Crear empleado</title>
 </head>
 <body>
-<h1>Crear Empleado</h1>
-<form method="post" action="{{ route('guardarEmpleado', $oficina->id) }}">
+<h1>Crear empleado para {{$oficina->nombre}}</h1>
+<form method="post" action="{{ route('guardarEmpleados', $oficina) }}">
     @csrf
-    @method('PUT')
     <div>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
