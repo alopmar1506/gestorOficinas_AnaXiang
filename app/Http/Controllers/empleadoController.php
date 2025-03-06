@@ -9,14 +9,6 @@ use App\Models\Empleado;
 class empleadoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create(Oficina $oficina)
@@ -32,7 +24,7 @@ class empleadoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'primer_apellido' => 'required',
-            'dni' => 'required|unique:empleados|regex:/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i',
+            'dni' => 'required|unique:empleados,dni|regex:/^[0-9]{8}[A-Z]$/',
             'email' => 'required|email|unique:empleados',
         ]);
 
@@ -40,16 +32,7 @@ class empleadoController extends Controller
         $empleado->oficina_id = $oficina->id;
         $empleado->save();
 
-        return redirect()->route('mostrarOficina', $oficina);
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect()->route('oficina', $empleado->oficina);
     }
 
     /**
@@ -75,13 +58,5 @@ class empleadoController extends Controller
         $empleado->update($request->all());
 
         return redirect()->route('oficina', $empleado->oficina);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

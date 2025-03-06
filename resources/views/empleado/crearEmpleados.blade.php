@@ -11,11 +11,11 @@
     @csrf
     <div>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+        <input type="text" id="nombre" name="nombre">
     </div>
     <div>
         <label for="primer_apellido">Primer Apellido:</label>
-        <input type="text" id="primer_apellido" name="primer_apellido" required>
+        <input type="text" id="primer_apellido" name="primer_apellido">
     </div>
     <div>
         <label for="segundo_apellido">Segundo Apellido:</label>
@@ -31,11 +31,11 @@
     </div>
     <div>
         <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required>
+        <input type="text" id="dni" name="dni">
     </div>
     <div>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email">
     </div>
     <button type="submit">Guardar</button>
 </form>
