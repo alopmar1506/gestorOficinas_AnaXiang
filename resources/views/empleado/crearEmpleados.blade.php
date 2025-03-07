@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear empleado</title>
+    <link href="{{ asset('css/empleado/styleFormEmpleado.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styleGeneral.css') }}" rel="stylesheet">
 </head>
 <body>
-<h1>Crear empleado para {{$oficina->nombre}}</h1>
+<h1 class="titulo">Crear empleado para {{$oficina->nombre}}</h1>
 <form method="post" action="{{ route('guardarEmpleados', $oficina) }}">
     @csrf
+    @method('PUT')
     <div>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre">

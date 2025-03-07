@@ -1,22 +1,26 @@
-.contenedor-oficinas {
-    width: 80%;
+.contenedor-empleados {
+    width: 70%;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.lista_oficinas {
+.lista-empleados {
     list-style: none;
     padding: 0;
 }
 
-.lista_oficinas li {
+.lista-empleados li {
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
     border-radius: 4px;
-    background-color: #fafafa;
+    background-color: #fefefe;
+}
+
+.lista-empleados li strong {
+    font-weight: bold;
 }
 
 a {

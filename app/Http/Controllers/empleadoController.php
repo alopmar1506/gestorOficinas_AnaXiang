@@ -19,16 +19,22 @@ class empleadoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Oficina $oficina)
+    public function store(Request $request, Oficina $oficina, Empleado $empleado)
     {
         $request->validate([
             'nombre' => 'required',
             'primer_apellido' => 'required',
-            'dni' => 'required|unique:empleados,dni|regex:/^[0-9]{8}[A-Z]$/',
+            'segundo_apellido' => 'required',
+            'rol' => 'required',
+            'fecha_nacimiento' => 'required',
+            'dni' =>[
+                'required',
+                'unique:empleados,dni',
+                'regex:/^[0-9]{8}[A-Za-z]$/',
+            ],
             'email' => 'required|email|unique:empleados',
         ]);
-
-        $empleado = new Empleado($request->all());
+        Empleado::create($request->all());
         $empleado->oficina_id = $oficina->id;
         $empleado->save();
 
@@ -54,9 +60,7 @@ class empleadoController extends Controller
             'dni' => 'required|regex:/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i|unique:empleados,dni,'.$empleado->id,
             'email' => 'required|email|unique:empleados,email,'.$empleado->id,
         ]);
-
         $empleado->update($request->all());
-
-        return redirect()->route('oficina', $empleado->oficina);
+        return redirect()->route('oficina');
     }
 }

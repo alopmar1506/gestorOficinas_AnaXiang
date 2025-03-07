@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Empleado</title>
+    <link href="{{ asset('css/empleado/styleFormEmpleado.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styleGeneral.css') }}" rel="stylesheet">
 </head>
 <body>
-<h1>Editar Empleado</h1>
+<h1 class="titulo">Editar Empleado</h1>
 <form method="post" action="{{ route('actualizarEmpleados', ['empleado' => $empleado->id]) }}" >
     @csrf
     @method('PUT')

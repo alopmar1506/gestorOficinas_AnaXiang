@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Listado de empresas</title>
     <link href="{{ asset('css/oficina/styleListadoOficinas.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styleGeneral.css') }}" rel="stylesheet">
+
 
 </head>
 <body>

@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Oficina</title>
     <link href="{{ asset('css/oficina/styleFormCrearOficina.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styleGeneral.css') }}" rel="stylesheet">
 </head>
 <body>
-<h1>Crear Oficina</h1>
+<h1 class="titulo">Crear Oficina</h1>
 <form method="post" action="{{ route('guardarOficina')}}">
     @csrf
     @method('PUT')
