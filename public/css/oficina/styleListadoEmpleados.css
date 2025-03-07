@@ -1,4 +1,4 @@
-.contenedor-empleados {
+.empleados {
     width: 70%;
     margin: 20px auto;
     padding: 20px;
@@ -6,20 +6,20 @@
     border-radius: 5px;
 }
 
-.lista-empleados {
+.listaEmpleados {
     list-style: none;
     padding: 0;
 }
 
-.lista-empleados li {
+.listaEmpleados li {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #eee;
     border-radius: 4px;
-    background-color: #fefefe;
+    background-color: white;
 }
 
-.lista-empleados li strong {
+.listaEmpleados li strong {
     font-weight: bold;
 }
 
@@ -33,4 +33,17 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #aae1ac;
 }

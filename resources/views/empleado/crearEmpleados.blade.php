@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 class="titulo">Crear empleado para {{ $oficina->nombre }}</h1>
-<a href="{{ route('mostrarOficina', $oficina) }}"><button>Volver a la página inicial</button></a>
+<a href="{{ route('mostrarOficina', $oficina) }}"><button>Volver a la lista de empleados</button></a>
 
 <form method="POST" action="{{ route('guardarEmpleados', $oficina->id) }}">
     @csrf

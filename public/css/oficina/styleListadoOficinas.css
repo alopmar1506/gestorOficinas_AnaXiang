@@ -1,4 +1,4 @@
-.contenedor-oficinas {
+.oficinas {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
@@ -6,17 +6,17 @@
     border-radius: 5px;
 }
 
-.lista_oficinas {
+.listaOficinas {
     list-style: none;
     padding: 0;
 }
 
-.lista_oficinas li {
+.listaOficinas li {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background-color: #fafafa;
+    background-color: white;
 }
 
 a {
@@ -29,4 +29,17 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #aae1ac;
 }

@@ -36,11 +36,8 @@ class empleadoController extends Controller
             'rol' => 'nullable|string|max:255',
         ]);
 
-        // Crear empleado asociado a la oficina
         $oficina->empleados()->create($validatedData);
-
-        // Redirigir a la vista de la oficina
-        return redirect()->route('mostrarOficina', $oficina->id)->with('success', 'Empleado creado exitosamente.');
+        return redirect()->route('mostrarEmpleados', $oficina->id);
     }
 
     /**
