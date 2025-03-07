@@ -19,26 +19,28 @@ class empleadoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Oficina $oficina, Empleado $empleado)
+    public function store(Request $request, Oficina $oficina)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'primer_apellido' => 'required',
-            'segundo_apellido' => 'required',
-            'rol' => 'required',
-            'fecha_nacimiento' => 'required',
-            'dni' =>[
+        // Validar entrada del formulario
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'primer_apellido' => 'required|string|max:255',
+            'segundo_apellido' => 'nullable|string|max:255',
+            'dni' => [
                 'required',
                 'unique:empleados,dni',
-                'regex:/^[0-9]{8}[A-Za-z]$/',
+                'regex:/^[0-9]{8}[A-Za-z]$/'
             ],
-            'email' => 'required|email|unique:empleados',
+            'email' => 'required|email|unique:empleados,email',
+            'fecha_nacimiento' => 'nullable|date',
+            'rol' => 'nullable|string|max:255',
         ]);
-        Empleado::create($request->all());
-        $empleado->oficina_id = $oficina->id;
-        $empleado->save();
 
-        return redirect()->route('oficina', $oficina);
+        // Crear empleado asociado a la oficina
+        $oficina->empleados()->create($validatedData);
+
+        // Redirigir a la vista de la oficina
+        return redirect()->route('mostrarOficina', $oficina->id)->with('success', 'Empleado creado exitosamente.');
     }
 
     /**

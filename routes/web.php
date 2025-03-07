@@ -24,7 +24,7 @@ Route::put('oficina', [OficinaController::class, 'store'])->name('guardarOficina
 
 //Rutas empleados
 Route::get('oficina/{oficina}/empleados/crearEmpleados', [EmpleadoController::class, 'create'])->name('crearEmpleados');
-Route::put('oficina/{oficina}/empleados', [EmpleadoController::class, 'store'])->name('guardarEmpleados');
+Route::post('oficina/{oficina}/empleados', [EmpleadoController::class, 'store'])->name('guardarEmpleados');
 Route::get('empleados/{empleado}/editarEmpleados', [EmpleadoController::class, 'edit'])->name('editarEmpleados');
 Route::put('empleados/{empleado}', [EmpleadoController::class, 'update'])->name('actualizarEmpleados');
 

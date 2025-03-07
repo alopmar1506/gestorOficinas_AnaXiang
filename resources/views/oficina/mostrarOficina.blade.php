@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="titulo">Empleados de {{ $oficina->nombre }}</h1>
+<a href="{{ route('oficina', $oficina) }}"><button>Volver a la lista de oficinas</button></a>
 <a href="{{ route('crearEmpleados', $oficina) }}">Añadir empleado</a>
 <div class="contenedor-empleados">
     <ul class="lista-empleados">

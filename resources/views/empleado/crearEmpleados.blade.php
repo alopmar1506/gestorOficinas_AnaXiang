@@ -8,17 +8,18 @@
     <link href="{{ asset('css/styleGeneral.css') }}" rel="stylesheet">
 </head>
 <body>
-<h1 class="titulo">Crear empleado para {{$oficina->nombre}}</h1>
-<form method="post" action="{{ route('guardarEmpleados', $oficina) }}">
+<h1 class="titulo">Crear empleado para {{ $oficina->nombre }}</h1>
+<a href="{{ route('mostrarOficina', $oficina) }}"><button>Volver a la página inicial</button></a>
+
+<form method="POST" action="{{ route('guardarEmpleados', $oficina->id) }}">
     @csrf
-    @method('PUT')
     <div>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" required>
     </div>
     <div>
         <label for="primer_apellido">Primer Apellido:</label>
-        <input type="text" id="primer_apellido" name="primer_apellido">
+        <input type="text" id="primer_apellido" name="primer_apellido" required>
     </div>
     <div>
         <label for="segundo_apellido">Segundo Apellido:</label>
@@ -34,14 +35,13 @@
     </div>
     <div>
         <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni">
+        <input type="text" id="dni" name="dni" required pattern="[0-9]{8}[A-Za-z]" title="Debe tener 8 números seguidos de una letra">
     </div>
     <div>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" required>
     </div>
     <button type="submit">Guardar</button>
 </form>
 </body>
 </html>
-

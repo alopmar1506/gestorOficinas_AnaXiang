@@ -8,7 +8,7 @@
     <link href="{{ asset('css/styleGeneral.css') }}" rel="stylesheet">
 </head>
 <body>
-<h1 class="titulo">Crear Oficina</h1>
+<h1 class="titulo">Crear oficina</h1>
 <form method="post" action="{{ route('guardarOficina')}}">
     @csrf
     @method('PUT')
